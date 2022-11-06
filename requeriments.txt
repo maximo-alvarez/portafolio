@@ -1,0 +1,12 @@
+django
+# new admin theme
+# django-admin-interface
+# Importar Exportar
+django-import-export
+# new admin theme
+# django-adminlte-ui
+django-jazzmin
+
+social-auth-app-django
+
+
