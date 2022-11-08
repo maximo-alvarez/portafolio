@@ -140,8 +140,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# modificaciones
+####  MODIFICACIONES
+
 AUTH_USER_MODEL = 'seguridad.Usuario'
+
 JAZZMIN_UI_TWEAKS = {
     "theme": "lumen",
     #"theme": "sketchy",
@@ -163,5 +165,6 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
+
 SOCIAL_AUTH_GITHUB_KEY = '4820fd9f7b772fce70c1'
 SOCIAL_AUTH_GITHUB_SECRET = '77ed4e37415dfc03487b0cdd627d6870d6fee8b6'
