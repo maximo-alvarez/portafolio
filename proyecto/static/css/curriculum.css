@@ -1,0 +1,8 @@
+.usuario-img{
+    border-radius: 50% !important;
+    padding: 5px;
+    border-bottom: solid 3px #00adff;
+}
+.social em{
+    color: #323232;
+}
