@@ -6,3 +6,24 @@
 .social em{
     color: #323232;
 }
+.proyecto {
+    vertical-align: top;
+}
+.proyecto .imagen img {
+    width: 100%;
+    border-radius: 50%!important;
+    border-right: solid 2px #d1d1d1;
+}
+.proyecto .detalle {
+    width: 75%;
+}
+.proyecto .imagen {
+    width: 20%;
+}
+.proyecto .imagen, .proyecto .detalle {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.social a{
+    text-decoration: none!important;
+}
