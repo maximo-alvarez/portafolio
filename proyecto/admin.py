@@ -3,6 +3,7 @@ from django import forms
 from import_export.admin import ImportExportMixin
 
 from proyecto.models import Categoria, Proyecto
+from seguridad.models import Mensaje
 
 
 class ProyectoAdminForm(forms.ModelForm):
@@ -32,5 +33,19 @@ class ProyectoAdmin(ImportExportMixin, admin.ModelAdmin):
         obj.save()
 
 
+class MensajeAdmin(ImportExportMixin, admin.ModelAdmin):
+    list_display = ('correo', 'nombre', 'asunto', 'mensaje')
+    def get_queryset(self, request):
+        if request.user.is_superuser:
+            return Mensaje.objects.all()
+        return Mensaje.objects.filter(usuario=request.user)
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.usuario = request.user
+        obj.save()
+
+
 admin.site.register(Categoria)
 admin.site.register(Proyecto, ProyectoAdmin)
+admin.site.register(Mensaje, MensajeAdmin)

@@ -4,13 +4,16 @@ from django import forms
 from import_export.admin import ImportExportMixin
 
 from proyecto.models import Proyecto
-from seguridad.models import Usuario
+from seguridad.models import Usuario, Mensaje
 
+
+class MensajeInline(admin.TabularInline):
+    model = Mensaje
+    extra = 0
 
 class ProyectoInline(admin.StackedInline):
     model = Proyecto
     extra = 0
-
 
 class UsuarioAdminForm(forms.ModelForm):
 
@@ -29,6 +32,7 @@ class UsuarioAdmin(ImportExportMixin, admin.ModelAdmin):
     form = UsuarioAdminForm
 
     inlines = [ProyectoInline]
+    # inlines = [ProyectoInline, MensajeInline]
 
     def get_queryset(self, request):
         if request.user.is_superuser:

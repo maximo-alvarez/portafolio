@@ -1,0 +1,28 @@
+#files to ignore
+
+__pycache__/
+__pycache__/*
+
+#extensions to ignore
+*.log
+*.map
+*.pot
+*.pyc
+*.pyd
+*.pyo
+
+# incluyo css especificos de terceros
+#alertify
+!alertify.min.css
+!bootstrap.min.css
+
+#directories to ignore
+*.vscode/
+.idea/
+media/
+
+#archivos estaticos para produccion
+staticfiles/
+
+#migraciones
+*migrations/

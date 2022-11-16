@@ -15,6 +15,15 @@ class Usuario(AbstractUser):
     def __str__(self):
         return self.username
 
+# Create your models here.
+class Mensaje(models.Model):
+    asunto = models.CharField(max_length=100, null=True, blank=True)
+    correo = models.CharField(max_length=30, null=True, blank=True)
+    mensaje = models.CharField(max_length=500, null=True, blank=True)
+    nombre = models.CharField(max_length=100, null=True, blank=True)
+
+    usuario = models.ForeignKey(Usuario, related_name="mensajes", on_delete=models.PROTECT)
+
 
 @receiver(post_save, sender=Usuario)
 def usuario_postsave_handler(sender, instance, **kwargs):
