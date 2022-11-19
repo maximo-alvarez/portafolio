@@ -26,4 +26,4 @@ staticfiles/
 
 #migraciones
 *migrations/
-/tramites/settings/production.py
+/cfg/settings/production.py
