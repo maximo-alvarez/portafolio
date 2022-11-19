@@ -19,9 +19,9 @@ def mensaje_crear(request):
     mensaje.asunto = request.POST.get('asunto')
     mensaje.mensaje = request.POST.get('mensaje')
     mensaje.correo = request.POST.get('correo')
-    mensaje.usuario = request.user
+    mensaje.usuario = Usuario.objects.filter(username=request.POST.get('username')).first()
     mensaje.save()
-    return redirect('/curriculum2')
+    return redirect('/curriculum')
 
 @login_required
 def home(request):
