@@ -27,22 +27,6 @@ def mensaje_crear(request):
 def home(request):
     return redirect('/admin')
 
-class Curriculum(LoginRequiredMixin, TemplateView):
-    model = Usuario
-    template_name = 'templates/curriculum/curriculum.html'
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        usuario =  self.request.user
-        proyectos = Proyecto.objects.filter(usuario=usuario).all()
-        context['usuario'] = usuario
-        context['proyectos'] = proyectos
-        return context
-
 class CurriculumIndex(TemplateView):
     model = Usuario
     template_name = 'curriculum/index.html'
