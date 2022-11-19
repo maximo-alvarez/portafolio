@@ -1,6 +1,6 @@
 from django.db import models
 
-from seguridad.models import Usuario
+from app.seguridad.models import Usuario
 
 
 class Categoria(models.Model):

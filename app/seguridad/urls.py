@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
-from seguridad import views
+from app.seguridad import views
 
 urlpatterns = [
     path('login/', views.login, name='login'),

@@ -2,8 +2,8 @@ from django.contrib import admin
 from django import forms
 from import_export.admin import ImportExportMixin
 
-from proyecto.models import Categoria, Proyecto
-from seguridad.models import Mensaje
+from app.proyecto.models import Categoria, Proyecto
+from app.seguridad.models import Mensaje
 
 
 class ProyectoAdminForm(forms.ModelForm):

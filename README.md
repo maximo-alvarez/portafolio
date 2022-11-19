@@ -13,3 +13,13 @@ github login
 https://www.youtube.com/watch?v=RjjEZs4U2Yc
 https://github.com/imrohit007/Github-auth-Django
 https://medium.com/geekculture/django-social-authentication-sign-in-with-github-33390db1a388
+
+crear archivo cfg.settings.production
+
+copiar contenido de cfg.settings.develop a cfg.settings.production
+
+ingresar los datos de configuración conforme su ambiente de trabajo
+
+python manage.py makemigrations seguridad proyecto
+
+python manage.py migrate

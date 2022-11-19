@@ -3,8 +3,8 @@ from django.contrib import admin
 from django import forms
 from import_export.admin import ImportExportMixin
 
-from proyecto.models import Proyecto
-from seguridad.models import Usuario, Mensaje
+from app.proyecto.models import Proyecto
+from app.seguridad.models import Usuario, Mensaje
 
 
 class MensajeInline(admin.TabularInline):

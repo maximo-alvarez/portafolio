@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     # Social Auth
     'social_django',
     # Apps
-    'proyecto',
-    'seguridad',
+    'app.proyecto',
+    'app.seguridad',
 ]
 
 MIDDLEWARE = [

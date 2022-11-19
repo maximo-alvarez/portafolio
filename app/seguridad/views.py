@@ -5,8 +5,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, TemplateView
 
-from proyecto.models import Proyecto
-from seguridad.models import Usuario, Mensaje
+from app.proyecto.models import Proyecto
+from app.seguridad.models import Usuario, Mensaje
 
 
 # Create your views here.
