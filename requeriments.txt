@@ -1,9 +1,0 @@
-django
-# import-export
-django-import-export
-# admin theme
-django-jazzmin
-# github auth
-social-auth-app-django
-# postgresql
-psycopg2
