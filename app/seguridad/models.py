@@ -12,6 +12,8 @@ class Usuario(AbstractUser):
     foto = models.ImageField(upload_to='usuario/%Y/%m', default='static/img/user.jpg', null=True, blank=True)
     url_git = models.CharField(max_length=250, null=True, blank=True)
     url_linkedin = models.CharField(max_length=250, null=True, blank=True)
+    url_github = models.CharField(max_length=250, null=True, blank=True)
+    url_instagram = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
         return self.username
