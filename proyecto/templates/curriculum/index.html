@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Jackson Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+    <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+    <link href="{% static 'plugins/curriculum/css/animate.css' %}" rel="stylesheet" type="text/css" />
+	<!-- Icomoon Icon Fonts-->
+    <link href="{% static 'plugins/curriculum/css/icomoon.css' %}" rel="stylesheet" type="text/css" />
+	<!-- Bootstrap  -->
+    <link href="{% static 'plugins/curriculum/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">#}
+
+	<!-- Theme style  -->
+    <link href="{% static 'plugins/curriculum/css/style.css' %}" rel="stylesheet" type="text/css" />
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'plugins/curriculum/js/modernizr-2.6.2.min.js' %}"></script>
+
+    <link href="{% static 'plugins/fontawesome/css/all.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'plugins/fontawesome/css/solid.min.css' %}" rel="stylesheet" type="text/css" />
+
+	</head>
+	<body>
+	<div id="colorlib-page">
+		<div class="container-wrap">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+			<div class="text-center">
+				<div class="author-img" style="background-image: url({% static 'img/user.png' %});"></div>
+				<h1 id="colorlib-logo"><a href="index.html">{{ usuario.first_name }} {{ usuario.last_name }}</a></h1>
+				<span class="position">Desarrollador en Ecuador</span>
+			</div>
+			<nav id="colorlib-main-menu" role="navigation" class="navbar">
+				<div id="navbar" class="collapse">
+					<ul>
+						<li class="active"><a href="#" data-nav-section="about">Acerca de mi</a></li>
+						<li><a href="#" data-nav-section="experience">Experiencia</a></li>
+						<li><a href="#" data-nav-section="contact">Contacto</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="colorlib-footer">
+				<p>
+					<small>&copy;
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright <script>document.write(new Date().getFullYear());</script> All rights reserved. <br>
+					Made with <i class="fa fa-user" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </span>
+                    </small>
+				</p>
+				<ul>
+                    {% if usuario.url_git %}
+                        <li><a href="{{usuario.url_git}}" target="_blank" rel="noreferrer noopener"><i class="fab fa-facebook fa-2x" style="color: #2e6da4"></i></a></li>
+                    {% endif %}
+                    {% if usuario.url_linkedin %}
+                        <li><a href="{{usuario.url_linkedin}}" target="_blank" rel="noreferrer noopener"><i class="fab fa-linkedin fa-2x" style="color: #4054b2"></i></a></li>
+                    {% endif %}
+                    {% if usuario.url_git %}
+                        <li><a href="{{usuario.url_instagram}}" target="_blank" rel="noreferrer noopener"><i class="fab fa-instagram fa-2x" style="color: #ec5453"></i></a></li>
+                    {% endif %}
+                    {% if usuario.url_git %}
+                        <li><a href="{{usuario.url_twitter}}" target="_blank" rel="noreferrer noopener"><i class="fab fa-twitter fa-2x" style="color: #00adff"></i></a></li>
+                    {% endif %}
+				</ul>
+			</div>
+
+		</aside>
+
+		<div id="colorlib-main">
+
+			<section class="colorlib-about" data-section="about">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="col-md-12">
+									<div class="about-desc">
+										<span class="heading-meta">Acerca de mi</span>
+										<h2 class="colorlib-heading">¿Quién soy yo?</h2>
+										<p><strong>Hi I'm {{ usuario.first_name }} {{ usuario.last_name }}</strong> {{ usuario.descripcion }}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section class="colorlib-experience" data-section="experience">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Experiencia</span>
+							<h2 class="colorlib-heading animate-box">Experiencia de trabajo</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+                            <div class="timeline-centered">
+
+                                {% for proyecto in proyectos %}
+                                    <article class="timeline-entry animate-box" data-animate-effect="{% cycle 'fadeInLeft' 'fadeInRight' 'fadeInTop' 'fadeInBottom'%}">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon color-{% cycle '1' '2' '3' '4' '5' %}">
+                                                <i class="icon-pen2"></i>
+                                            </div>
+                                            <div class="timeline-label">
+                                                <h2>{{ proyecto.nombre }} <span>{{ proyecto.fecha }}</span></h2>
+                                                <p>{{ proyecto.descripcion }}</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                {% endfor %}
+
+                                <article class="timeline-entry begin animate-box" data-animate-effect="fadeInBottom">
+                                    <div class="timeline-entry-inner">
+                                        <div class="timeline-icon color-none">
+                                        </div>
+                                    </div>
+                                </article>
+					      </div>
+					   </div>
+				   </div>
+				</div>
+			</section>
+
+			<section class="colorlib-contact" data-section="contact">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+							<span class="heading-meta">Ponerse en contacto</span>
+							<h2 class="colorlib-heading">Contacto</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="icon-globe-outline"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="mailto:{{ usuario.email }}" target="_blank" rel="noreferrer noopener">{{ usuario.email }}</a></p>
+								</div>
+							</div>
+
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="icon-map"></i>
+								</div>
+								<div class="colorlib-text">
+									<p>Loja Ecuador</p>
+								</div>
+							</div>
+
+							<div class="colorlib-feature colorlib-feature-sm animate-box" data-animate-effect="fadeInLeft">
+								<div class="colorlib-icon">
+									<i class="icon-phone"></i>
+								</div>
+								<div class="colorlib-text">
+									<p><a href="tel://">{{ usuario.celular|default:'' }}</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-push-1">
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
+									<form action="/mensaje/crear" method="POST">
+                                        {% csrf_token %}
+										<div class="form-group">
+											<input type="text" name="nombre" class="form-control" placeholder="Nombre" required>
+										</div>
+										<div class="form-group">
+											<input type="text" name="correo" class="form-control" placeholder="Correo" required>
+										</div>
+										<div class="form-group">
+											<input type="text" name="asunto" class="form-control" placeholder="Asunto" required>
+										</div>
+										<div class="form-group">
+											<textarea name="mensaje" id="message" cols="30" rows="7" class="form-control" placeholder="Mensaje" required></textarea>
+										</div>
+										<div class="form-group">
+											<input type="submit" class="btn btn-primary btn-send-message" value="Enviar Mensaje">
+										</div>
+									</form>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div><!-- end:colorlib-main -->
+	</div><!-- end:container-wrap -->
+	</div><!-- end:colorlib-page -->
+
+	<!-- jQuery -->
+    <script src="{% static 'plugins/curriculum/js/jquery.min.js' %}"></script>
+	<!-- Waypoints -->
+    <script src="{% static 'plugins/curriculum/js/jquery.waypoints.min.js' %}"></script>
+	<!-- Counters -->
+    <script src="{% static 'plugins/curriculum/js/jquery.countTo.js' %}"></script>
+	<!-- MAIN JS -->
+    <script src="{% static 'plugins/curriculum/js/main.js' %}"></script>
+
+{#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>#}
+
+	</body>
+</html>
+

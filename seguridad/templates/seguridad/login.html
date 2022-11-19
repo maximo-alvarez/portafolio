@@ -1,0 +1,13 @@
+{% extends 'seguridad/base.html' %}
+{% block title %}Sign in{% endblock %} 
+{% block content %} 
+    <div class="row">
+        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
+            <button class="btn btn-primary mb-2 text-white">
+                <a href="{% url 'social:begin' 'github' %}" style="color: white!important;">
+                    LOGIN WITH GITHUB 
+                </a>
+            </button>
+        </div>
+    </div>
+{% endblock %}
