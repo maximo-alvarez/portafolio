@@ -1,12 +1,9 @@
 django
-# new admin theme
-# django-admin-interface
-# Importar Exportar
+# import-export
 django-import-export
-# new admin theme
-# django-adminlte-ui
+# admin theme
 django-jazzmin
-
+# github auth
 social-auth-app-django
-
-
+# postgresql
+psycopg2
