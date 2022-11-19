@@ -43,7 +43,22 @@ class Curriculum(LoginRequiredMixin, TemplateView):
         context['proyectos'] = proyectos
         return context
 
-class CurriculumIndex(LoginRequiredMixin, TemplateView):
+class CurriculumIndex(TemplateView):
+    model = Usuario
+    template_name = 'curriculum/index.html'
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        usuario =  Usuario.objects.filter(username=kwargs['username']).first()
+        proyectos = Proyecto.objects.filter(usuario=usuario).all()
+        context['usuario'] = usuario
+        context['proyectos'] = proyectos
+        return context
+class CurriculumIndexAdmin(LoginRequiredMixin, TemplateView):
     model = Usuario
     template_name = 'curriculum/index.html'
 
