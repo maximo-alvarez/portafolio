@@ -26,4 +26,12 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-luego de crearse nos presentará un error debido a que no existe el grupo usuario_github mismo que es asignado a los usuarios que ingresan por las autenticaciones futuras de github
+luego de crearse nos presentará un error debido a que no existe el grupo usuario_github mismo que es asignado a 
+los usuarios que ingresan por las autenticaciones futuras de github, una vez tengamos acceso al admin debemos crear el 
+grupo y asignarles los permisos:
+
+1. Crud completo sobre proyectos
+2. Modificar usuario
+3. Ver mensajes
+
+Crear las categorías necesarias.
