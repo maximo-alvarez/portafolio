@@ -31,7 +31,7 @@ los usuarios que ingresan por las autenticaciones futuras de github, una vez ten
 grupo y asignarles los permisos:
 
 1. Crud completo sobre proyectos
-2. Modificar usuario
+2. Ver/Modificar usuario
 3. Ver mensajes
 
 Crear las categorías necesarias.

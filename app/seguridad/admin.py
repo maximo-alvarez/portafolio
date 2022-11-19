@@ -22,12 +22,12 @@ class UsuarioAdminForm(forms.ModelForm):
         self.fields['descripcion'].widget = forms.widgets.Textarea()
 
     class Meta:
-        fields = ('email', 'first_name', 'last_name', 'cedula', 'celular', 'descripcion', 'url_git', 'url_linkedin')
+        fields = ('email', 'foto', 'first_name', 'last_name', 'cedula', 'celular', 'descripcion', 'url_git', 'url_linkedin')
         model = Usuario
 
 
 class UsuarioAdmin(ImportExportMixin, admin.ModelAdmin):
-    list_display = ('username', 'cedula', 'email', 'first_name', 'last_name', 'is_active')
+    list_display = ('username', 'foto', 'cedula', 'email', 'first_name', 'last_name', 'is_active')
     search_fields = ('email', 'cedula', )
     form = UsuarioAdminForm
 

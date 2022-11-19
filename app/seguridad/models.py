@@ -9,6 +9,7 @@ class Usuario(AbstractUser):
     cedula = models.CharField(max_length=10, null=True, blank=True)
     celular = models.CharField(max_length=10, null=True, blank=True)
     descripcion = models.CharField(max_length=500, null=True, blank=True)
+    foto = models.ImageField(upload_to='usuario/%Y/%m', default='static/img/user.jpg', null=True, blank=True)
     url_git = models.CharField(max_length=250, null=True, blank=True)
     url_linkedin = models.CharField(max_length=250, null=True, blank=True)
 
