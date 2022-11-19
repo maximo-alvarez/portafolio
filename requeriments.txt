@@ -7,3 +7,4 @@ django-jazzmin
 social-auth-app-django
 # postgresql
 psycopg2
+gunicorn
