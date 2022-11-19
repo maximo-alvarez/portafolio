@@ -26,7 +26,7 @@ class UsuarioAdminForm(forms.ModelForm):
         self.fields['descripcion'].widget = forms.widgets.Textarea()
 
     class Meta:
-        fields = ('email', 'foto', 'first_name', 'last_name', 'cedula', 'celular', 'descripcion', 'url_git', 'url_linkedin')
+        fields = ('email', 'foto', 'first_name', 'last_name', 'cedula', 'celular', 'descripcion', 'url_git', 'url_linkedin', 'url_github', 'url_instagram')
         model = Usuario
 
 
