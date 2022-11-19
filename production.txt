@@ -1,0 +1,132 @@
+apt update && apt upgrade -y && apt purge snapd && timedatectl set-timezone America/Guayaquil && dpkg-reconfigure tzdata
+
+apt install gcc net-tools python3-virtualenv python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl libssl-dev libpangocairo-1.0-0 --no-install-recommends
+
+reboot
+
+systemctl enable ufw
+ufw allow 'Nginx Full' && ufw allow 'Nginx HTTP' && ufw allow 'Nginx HTTPS' && ufw allow 'OpenSSH'
+ufw enable && ufw status
+systemctl start ufw
+
+nano /etc/postgresql/14/main/postgresql.conf
+port = XXXXX
+systemctl restart postgresql
+
+passwd postgres
+
+
+su postgres
+psql
+alter user postgres with password 'XXXXX';
+set TIMEZONE='America/Guayaquil';
+select now();
+ALTER DATABASE postgres SET timezone TO 'America/Guayaquil';
+create database portafolio;
+ALTER DATABASE portafolio SET timezone TO 'America/Guayaquil';
+CREATE USER portafolio WITH PASSWORD 'portafolio';
+ALTER ROLE portafolio SET client_encoding TO 'utf8';
+ALTER ROLE portafolio SET default_transaction_isolation TO 'read committed';
+ALTER ROLE portafolio SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE portafolio TO portafolio;
+
+\l
+\q
+
+mkdir /root/_proyecto
+
+cd /root/_proyecto
+
+virtualenv portafolio_env
+
+cd /root/_proyecto/portafolio_env
+
+ufw allow 8001/tcp
+
+gunicorn --bind 0.0.0.0:8001 config.wsgi
+
+sudo nano /etc/systemd/system/portafolio.service
+
+ExecStart=/home/tramites/.virtualenvs/tramites_env/bin/gunicorn --workers 4  --bind 127.0.0.1:8000 --timeout 1200000 tramites.wsgi:application
+
+[Unit]
+Description=portafolio daemon
+After=network.target
+ExecStart=/root/_proyecto/portafolio_env/bin/gunicorn \
+          --access-logfile - \
+          --workers 4 \
+          --bind unix:/run/gunicorn.sock \
+          cfg.wsgi:application
+
+[Service]
+User=root
+WorkingDirectory=/root/_proyecto/portafolio_env/portafolio
+ExecStart=/root/_proyecto/portafolio_env/bin/gunicorn \
+          --access-logfile - \
+          --workers 4 \
+          --bind 127.0.0.1:8000 \
+          cfg.wsgi:application
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
+systemctl start portafolio
+systemctl enable portafolio
+
+systemctl daemon-reload
+
+nano /etc/nginx/conf.d/seguridad.conf
+
+#Ocultando versión de nginx
+server_tokens off;
+#Evitando ataques css xss
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header X-XSS-Protection "1; mode=block" always;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "no-referrer-when-downgrade" always;
+add_header Content-Security-Policy "default-src * data: 'unsafe-eval' 'unsafe-inline'" always;
+
+#Manejando ataques DOS y DDOS
+client_body_buffer_size 128k;
+client_max_body_size 5M;
+large_client_header_buffers 4 256k;
+
+nano /etc/nginx/sites-available/default
+
+server_name portafolioprofesional.com
+
+
+server {
+    listen 80;
+    server_name portafolioprofesional.com;
+
+    #location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /var/www/portafolio/;
+    }
+
+    location / {
+        access_log /var/log/portafolio/nginx_access.log;
+        error_log /var/log/portafolio/nginx_error.log;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://127.0.0.1:8001;
+        #proxy_redirect off;
+    }
+}
+
+mkdir /var/log/portafolio && mkdir /var/www/portafolio
+nginx -t && systemctl restart nginx
+
+apt install certbot python3-certbot-nginx
+
+sudo fallocate -l 2G /swapfile && ls -lh /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile && sudo cp /etc/fstab /etc/fstab.bak && echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab && sudo sysctl vm.swappiness=10 && sudo sysctl vm.vfs_cache_pressure=50
+
+python manage.py collectstatic
+
+certbot --nginx
