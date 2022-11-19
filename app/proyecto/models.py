@@ -22,5 +22,9 @@ class Proyecto(models.Model):
 
     categoria = models.ForeignKey(Categoria, related_name="proyectos", on_delete=models.PROTECT)
     usuario = models.ForeignKey(Usuario, related_name="proyectos", on_delete=models.PROTECT)
+#
+#
+# class Skill(models.Model):
+#     nombre = models.CharField(max_length=250)
 
 
