@@ -11,7 +11,7 @@
 	<meta name="author" content="" />
 
     <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
+	<meta property="og:title" content="Portafolio Profesional"/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
 	<meta property="og:site_name" content="Portafolio Profesional"/>
@@ -115,6 +115,32 @@
 					</div>
 				</div>
 			</section>
+
+            <section class="colorlib-skills" data-section="skills">
+                <div class="colorlib-narrow-content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                            <span class="heading-meta">Habilidades</span>
+                            <h2 class="colorlib-heading animate-box">Mis habilidades</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for habilidad in habilidades %}
+                            <div class="col-md-6 animate-box" data-animate-effect="{% cycle 'fadeInLeft' 'fadeInRight' 'fadeInTop' 'fadeInBottom'%}">
+                                <div class="progress-wrap">
+                                    <h3>{{ habilidad.nombre }}</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar color-{% cycle '1' '2' '3' '4' '5' %}" role="progressbar" aria-valuenow="{{ habilidad.porcentaje }}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{ habilidad.porcentaje }}%">
+                                        <span>{{ habilidad.porcentaje }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
 			
 			<section class="colorlib-experience" data-section="experience">
 				<div class="colorlib-narrow-content">

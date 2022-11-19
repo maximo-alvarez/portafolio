@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, TemplateView
 
-from app.proyecto.models import Proyecto
+from app.proyecto.models import Proyecto, Habilidad
 from app.seguridad.models import Usuario, Mensaje
 
 
@@ -39,9 +39,12 @@ class CurriculumIndex(TemplateView):
         context = super().get_context_data(**kwargs)
         usuario =  Usuario.objects.filter(username=kwargs['username']).first()
         proyectos = Proyecto.objects.filter(usuario=usuario).all()
+        habilidades = Habilidad.objects.filter(usuario=usuario).all()
         context['usuario'] = usuario
         context['proyectos'] = proyectos
+        context['habilidades'] = habilidades
         return context
+
 class CurriculumIndexAdmin(LoginRequiredMixin, TemplateView):
     model = Usuario
     template_name = 'curriculum/index.html'
@@ -54,6 +57,8 @@ class CurriculumIndexAdmin(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         usuario =  self.request.user
         proyectos = Proyecto.objects.filter(usuario=usuario).all()
+        habilidades = Habilidad.objects.filter(usuario=usuario).all()
         context['usuario'] = usuario
         context['proyectos'] = proyectos
+        context['habilidades'] = habilidades
         return context

@@ -3,7 +3,7 @@ from django.contrib import admin
 from django import forms
 from import_export.admin import ImportExportMixin
 
-from app.proyecto.models import Proyecto
+from app.proyecto.models import Proyecto, Habilidad
 from app.seguridad.models import Usuario, Mensaje
 
 
@@ -13,6 +13,10 @@ class MensajeInline(admin.TabularInline):
 
 class ProyectoInline(admin.StackedInline):
     model = Proyecto
+    extra = 0
+
+class HabilidadInline(admin.TabularInline):
+    model = Habilidad
     extra = 0
 
 class UsuarioAdminForm(forms.ModelForm):
@@ -31,7 +35,7 @@ class UsuarioAdmin(ImportExportMixin, admin.ModelAdmin):
     search_fields = ('email', 'cedula', )
     form = UsuarioAdminForm
 
-    inlines = [ProyectoInline]
+    inlines = [ProyectoInline, HabilidadInline]
     # inlines = [ProyectoInline, MensajeInline]
 
     def get_queryset(self, request):

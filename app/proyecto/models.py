@@ -22,9 +22,12 @@ class Proyecto(models.Model):
 
     categoria = models.ForeignKey(Categoria, related_name="proyectos", on_delete=models.PROTECT)
     usuario = models.ForeignKey(Usuario, related_name="proyectos", on_delete=models.PROTECT)
-#
-#
-# class Skill(models.Model):
-#     nombre = models.CharField(max_length=250)
+
+
+class Habilidad(models.Model):
+    nombre = models.CharField(max_length=250)
+    porcentaje = models.PositiveSmallIntegerField(default=0, null=True, blank=True)
+
+    usuario = models.ForeignKey(Usuario, related_name="habilidades", on_delete=models.PROTECT)
 
 
