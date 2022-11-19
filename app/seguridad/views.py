@@ -29,7 +29,7 @@ def home(request):
 
 class Curriculum(LoginRequiredMixin, TemplateView):
     model = Usuario
-    template_name = 'curriculum/curriculum.html'
+    template_name = 'templates/curriculum/curriculum.html'
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):

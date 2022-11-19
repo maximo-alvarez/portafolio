@@ -23,3 +23,7 @@ ingresar los datos de configuración conforme su ambiente de trabajo
 python manage.py makemigrations seguridad proyecto
 
 python manage.py migrate
+
+python manage.py createsuperuser
+
+luego de crearse nos presentará un error debido a que no existe el grupo usuario_github mismo que es asignado a los usuarios que ingresan por las autenticaciones futuras de github
