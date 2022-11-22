@@ -25,7 +25,7 @@ def mensaje_crear(request):
 
 @login_required
 def home(request):
-    return redirect('/admin')
+    return redirect('/admin/')
 
 class CurriculumIndex(TemplateView):
     model = Usuario
