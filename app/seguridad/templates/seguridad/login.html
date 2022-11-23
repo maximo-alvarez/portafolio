@@ -1,13 +1,28 @@
-{% extends 'seguridad/base.html' %}
-{% block title %}Sign in{% endblock %} 
-{% block content %} 
-    <div class="row">
-        <div class="col-md-8 mx-auto social-container my-2 order-md-1">
-            <button class="btn btn-primary mb-2 text-white">
-                <a href="{% url 'social:begin' 'github' %}" style="color: white!important;">
-                    LOGIN WITH GITHUB 
-                </a>
-            </button>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Portafolio Profesional</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        {% load static %}
+        <link href="{% static 'plugins/fontawesome/css/all.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'plugins/fontawesome/css/solid.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/curriculum.css' %}?v=1.0" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+             <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Portafolio profesional</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="{% url 'social:begin' 'github' %}" class="btn btn-primary">
+                        <em class="fab fa-github"></em> Iniciar sesión con Github
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-{% endblock %}
+    </body>
+</html>

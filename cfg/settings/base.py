@@ -137,6 +137,29 @@ JAZZMIN_UI_TWEAKS = {
         "success": "btn-outline-success",
     },
 }
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Perfil Profesional",
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Perfil Profesional",
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "Perfil Profesional",
+    "welcome_sign": "Bienvenido a tu Porfatolio Profesional",
+    "search_model": ["seguridad.proyecto"],
+    "copyright": "Portafolio Profesional",
+    # Links to put along the top menu
+    "topmenu_links": [
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Ver portafolio",  "url": "curriculum", "new_window": True},
+    ],
+
+    # Additional links to include in the user menu on the top right ("app" url type is not allowed)
+    "usermenu_links": [
+        {"name": "Ver portafolio",  "url": "curriculum", "new_window": True},
+    ],
+
+}
+
 #social app custom settings
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.github.GithubOAuth2',
