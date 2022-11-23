@@ -47,8 +47,6 @@ gunicorn --bind 0.0.0.0:8001 config.wsgi
 
 sudo nano /etc/systemd/system/portafolio.service
 
-ExecStart=/home/tramites/.virtualenvs/tramites_env/bin/gunicorn --workers 4  --bind 127.0.0.1:8000 --timeout 1200000 tramites.wsgi:application
-
 [Unit]
 Description=portafolio daemon
 After=network.target
@@ -121,6 +119,7 @@ server {
 }
 
 mkdir /var/log/portafolio && mkdir /var/www/portafolio
+
 nginx -t && systemctl restart nginx
 
 apt install certbot python3-certbot-nginx
