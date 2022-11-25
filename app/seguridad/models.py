@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-# Create your models here.
 class Usuario(AbstractUser):
     cedula = models.CharField(max_length=10, null=True, blank=True)
     celular = models.CharField(max_length=10, null=True, blank=True)
@@ -18,7 +17,7 @@ class Usuario(AbstractUser):
     def __str__(self):
         return self.username
 
-# Create your models here.
+
 class Mensaje(models.Model):
     asunto = models.CharField(max_length=100, null=True, blank=True)
     correo = models.CharField(max_length=30, null=True, blank=True)
