@@ -11,3 +11,4 @@ social-auth-app-django
 gunicorn
 # manejo de archivos
 pillow
+
