@@ -1,0 +1,13 @@
+# Main SonarQube project information
+sonar.projectKey=bibliotecadjango
+sonar.projectName=bibliotecadjango
+sonar.projectVersion=0.0.1
+
+# Source is everything minus typical django project and venv/ (CI server)
+sonar.sources=.
+sonar.exclusions=manage.py,tracker/**,apps/**/migrations/**,static/libs/**,venv/**
+
+# Report paths (test results and coverage)
+sonar.python.xunit.reportPath=test-results.xml
+sonar.python.coverage.reportPath=test-coverage.xml
+
