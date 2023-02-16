@@ -25,7 +25,6 @@ ALLOWED_HOSTS = []
 #
 #    },
 #}
-os.path.join(BASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
