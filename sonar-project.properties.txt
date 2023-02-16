@@ -1,6 +1,6 @@
 # Main SonarQube project information
-sonar.projectKey=bibliotecadjango
-sonar.projectName=bibliotecadjango
+sonar.projectKey=portafolioprofesional
+sonar.projectName=portafolioprofesional
 sonar.projectVersion=0.0.1
 
 # Source is everything minus typical django project and venv/ (CI server)
