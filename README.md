@@ -1,7 +1,6 @@
 Mi Portafolio Personal
 ¡Bienvenido al repositorio de mi portafolio personal! Este es un proyecto de una sola página (landing page) diseñado para ser limpio, moderno y fácil de personalizar. Está construido con tecnologías web modernas que no requieren compilación, lo que lo hace perfecto para alojar en cualquier dominio o servicio de hosting estático.
 
-✨ Ver la demo en vivo ✨
 🚀 Características Principales
 Diseño Moderno: Interfaz limpia y profesional construida con Tailwind CSS y daisyUI.
 
