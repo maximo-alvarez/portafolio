@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Desarrollador de Software</title>
+
+    <!-- Tailwind CSS & daisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Boxicons CDN -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Agregamos la fuente Inter y el scroll suave */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-base-200 text-base-content">
+
+    <!-- Navbar -->
+    <header class="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto">
+            <div class="navbar-start">
+                 <!-- Menú para móvil -->
+                <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost lg:hidden">
+                        <i class='bx bx-menu text-2xl'></i>
+                    </label>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#clients">Clientes</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <a id="nav-name" class="btn btn-ghost text-xl font-bold"></a>
+            </div>
+             <!-- Menú para escritorio -->
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#clients">Clientes</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <a href="#contact" class="btn btn-primary">Contáctame</a>
+                <!-- Theme Toggle Button -->
+                <label class="swap swap-rotate ml-4">
+                    <input type="checkbox" id="theme-toggle" />
+                    <!-- sun icon -->
+                    <svg class="swap-off fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-1.41-1.41L1,14.17l1.41-1.41,1.41,1.41,1.42-1.41,1.41,1.41L8.46,17ZM5.64,7.05,4.23,5.64,5.64,4.23,7.05,5.64,5.64,7.05ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM17,14.17l-1.41-1.41,1.41-1.41,1.41,1.41-1.41,1.41ZM18.36,7.05,16.95,5.64,18.36,4.23l1.41,1.41Z"/></svg>
+                    <!-- moon icon -->
+                    <svg class="swap-on fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22a10.14,10.14,0,0,0,9.5,9.5A8.14,8.14,0,0,1,12.14,19.69Z"/></svg>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <!-- Hero Section -->
+        <section class="hero min-h-[70vh]">
+            <div class="hero-content flex-col lg:flex-row-reverse gap-12 lg:gap-16">
+                <div class="avatar">
+                    <div class="w-48 md:w-64 rounded-full ring ring-primary ring-offset-base-100 ring-offset-4 shadow-xl">
+                        <img src="uploaded:maximo.jpg-7c944738-8381-44b6-89bf-9736c16a2f83" alt="Foto de Máximo Álvarez" />
+                    </div>
+                </div>
+                <div class="max-w-2xl text-center lg:text-left">
+                    <h1 class="text-5xl md:text-6xl font-bold">Hola, soy <span id="hero-name"></span></h1>
+                    <p class="py-6 text-lg">Soy un Programador <span id="hero-specialty"></span> apasionado por crear soluciones digitales eficientes y elegantes. Transformo ideas complejas en software funcional.</p>
+                    <a href="#projects" class="btn btn-secondary">Ver mis proyectos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Mis Habilidades Técnicas</h2>
+            <div class="flex justify-center flex-wrap gap-4" aria-label="Tecnologías que manejo">
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-django text-green-700 mr-2'></i> Django</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-drupal text-sky-500 mr-2'></i> Drupal</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-wordpress text-blue-600 mr-2'></i> WordPress</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-docker text-blue-500 mr-2'></i> Docker</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-aws text-orange-500 mr-2'></i> AWS</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bx-server text-red-500 mr-2'></i> Hetzner</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bx-cloud text-blue-400 mr-2'></i> Digital Ocean</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-tailwind-css text-cyan-400 mr-2'></i> daisyUI</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bx-bot text-purple-500 mr-2'></i> n8n</div>
+                <div class="badge badge-lg badge-outline p-4"><i class='bx bxl-git text-red-500 mr-2'></i> Git & GitHub</div>
+            </div>
+        </section>
+
+        <!-- Clients Section -->
+        <section id="clients" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Clientes Destacados</h2>
+            <div class="flex justify-center items-center flex-wrap gap-x-12 gap-y-8 grayscale">
+                <div class="tooltip" data-tip="iskay.app">
+                    <img src="https://placehold.co/140x60/2A323C/FFFFFF?text=iskay.app" alt="Logo iskay.app" class="h-10 hover:grayscale-0 transition-all cursor-pointer">
+                </div>
+                 <div class="tooltip" data-tip="Junta General de Usuarios Zapotillo">
+                    <img src="https://placehold.co/140x60/2A323C/FFFFFF?text=JGZ" alt="Logo Junta General de Usuarios Zapotillo" class="h-10 hover:grayscale-0 transition-all cursor-pointer">
+                </div>
+                 <div class="tooltip" data-tip="Fondo Administrativo Docente">
+                    <img src="https://placehold.co/140x60/2A323C/FFFFFF?text=FAD-UNL" alt="Logo Fondo Administrativo Docente" class="h-10 hover:grayscale-0 transition-all cursor-pointer">
+                </div>
+                 <div class="tooltip" data-tip="SATDOT">
+                    <img src="https://placehold.co/140x60/2A323C/FFFFFF?text=SATDOT" alt="Logo SATDOT" class="h-10 hover:grayscale-0 transition-all cursor-pointer">
+                </div>
+                <div class="text-lg opacity-60 hover:opacity-100 transition-opacity">
+                    ...y muchos más.
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Proyectos Personales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Proyecto 1 -->
+                <div class="card bg-base-100 shadow-xl image-full">
+                    <figure><img src="https://placehold.co/400x225/2A323C/FFFFFF?text=Portafolio" alt="Vista previa del proyecto Portafolio" /></figure>
+                    <div class="card-body justify-between">
+                        <div>
+                            <h3 class="card-title text-2xl">Portafolio Personal</h3>
+                            <p>El sitio que estás viendo. Creado para mostrar mis habilidades y proyectos.</p>
+                        </div>
+                        <div class="card-actions justify-end">
+                            <a href="https://github.com/tu-usuario-github/tu-repo-portafolio" target="_blank" class="btn btn-outline btn-accent btn-sm">Código <i class='bx bxl-github'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="card bg-base-100 shadow-xl image-full">
+                    <figure><img src="https://placehold.co/400x225/2A323C/FFFFFF?text=App+de+Dibujo" alt="Vista previa del proyecto App de Dibujo" /></figure>
+                    <div class="card-body justify-between">
+                         <div>
+                            <h3 class="card-title text-2xl">App de Dibujo</h3>
+                            <p>Una aplicación web para dibujar en tiempo real utilizando lienzos HTML5.</p>
+                        </div>
+                        <div class="card-actions justify-end">
+                             <a href="#" target="_blank" class="btn btn-outline btn-accent btn-sm">Demo <i class='bx bx-link-external'></i></a>
+                            <a href="#" target="_blank" class="btn btn-outline btn-accent btn-sm">Código <i class='bx bxl-github'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Productos (SaaS)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Producto 1 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                    <div class="card-body items-center text-center">
+                        <i class='bx bx-receipt text-6xl text-primary mb-2'></i>
+                        <h3 class="card-title">Sistema de Facturación Electrónica</h3>
+                        <p class="text-sm opacity-70">(facturar.draco.ec)</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="https://facturar.draco.ec" target="_blank" class="btn btn-primary btn-outline">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                     <div class="card-body items-center text-center">
+                        <i class='bx bx-bus text-6xl text-secondary mb-2'></i>
+                        <h3 class="card-title">Sistema de Gestión de Unidades</h3>
+                         <p class="text-sm opacity-70">(unidades.draco.ec)</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="https://unidades.draco.ec" target="_blank" class="btn btn-secondary btn-outline">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                     <div class="card-body items-center text-center">
+                        <i class='bx bx-water text-6xl text-accent mb-2'></i>
+                        <h3 class="card-title">Control de Agua de Riego (SICAR)</h3>
+                         <p class="text-sm opacity-70">(sicar.draco.ec)</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="https://sicar.draco.ec" target="_blank" class="btn btn-accent btn-outline">Ver Producto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Servicios</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-base-100 shadow-lg"><div class="card-body items-center text-center"><i class='bx bx-atom text-4xl mb-2'></i><h3 class="card-title">Automatización de Procesos</h3></div></div>
+                <div class="card bg-base-100 shadow-lg"><div class="card-body items-center text-center"><i class='bx bx-window-open text-4xl mb-2'></i><h3 class="card-title">Páginas Web</h3></div></div>
+                <div class="card bg-base-100 shadow-lg"><div class="card-body items-center text-center"><i class='bx bx-customize text-4xl mb-2'></i><h3 class="card-title">Sistemas a la Medida</h3></div></div>
+                <div class="card bg-base-100 shadow-lg"><div class="card-body items-center text-center"><i class='bx bx-analyse text-4xl mb-2'></i><h3 class="card-title">Consultoría Tech</h3></div></div>
+                <div class="card bg-base-100 shadow-lg col-span-1 sm:col-span-2 lg:col-span-1"><div class="card-body items-center text-center"><i class='bx bx-chip text-4xl mb-2'></i><h3 class="card-title">Tecnología en General</h3> <p class="text-sm opacity-70">PCs, Laptops, Videovigilancia, etc.</p></div></div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12">Hablemos</h2>
+                <div class="max-w-lg mx-auto text-center bg-base-100 p-8 rounded-lg shadow-lg">
+                    <p class="mb-8 text-lg">Estoy disponible para nuevos proyectos y colaboraciones. No dudes en contactarme para discutir tus ideas.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center gap-4 text-xl">
+                            <i class='bx bxs-envelope text-primary'></i>
+                            <a id="contact-email" class="link link-hover"></a>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 text-xl">
+                            <i class='bx bxs-phone text-secondary'></i>
+                            <a id="contact-phone" class="link link-hover"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer items-center p-4 bg-neutral text-neutral-content">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+             <div class="items-center grid-flow-col">
+                <p>Copyright © 2025 - Todos los derechos reservados por <span id="copyright-name"></span></p>
+            </div>
+            <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+                <a id="github-link" href="#" target="_blank" class="link link-hover text-2xl"><i class='bx bxl-github'></i></a>
+                <a id="linkedin-link" href="#" target="_blank" class="link link-hover text-2xl"><i class='bx bxl-linkedin'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- CONFIGURACIÓN DE DATOS DEL PERFIL ---
+        // Modifica los valores en este objeto para actualizar la página.
+        const profileData = {
+            name: "Máximo Álvarez",
+            specialty: "Full Stack",
+            email: "maximo@dracoec.com",
+            phone: {
+                display: "096 841 3887",      // Cómo se muestra en la página
+                link: "+593968413887"      // Formato para el enlace tel:
+            },
+            socials: {
+                github: "https://github.com/maximo-alvarez",
+                linkedin: "https://www.linkedin.com/in/maximoalvarez/"
+            }
+        };
+
+
+        // --- LÓGICA DE LA PÁGINA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Cargar datos del perfil ---
+            function populateProfileData() {
+                // Título de la página
+                document.getElementById('page-title').prepend(profileData.name + " - ");
+                
+                // Navbar
+                document.getElementById('nav-name').textContent = profileData.name;
+                
+                // Hero Section
+                document.getElementById('hero-name').textContent = profileData.name;
+                document.getElementById('hero-specialty').textContent = profileData.specialty;
+
+                // Contact Section
+                const contactEmail = document.getElementById('contact-email');
+                contactEmail.href = `mailto:${profileData.email}`;
+                contactEmail.textContent = profileData.email;
+
+                const contactPhone = document.getElementById('contact-phone');
+                contactPhone.href = `tel:${profileData.phone.link}`;
+                contactPhone.textContent = profileData.phone.display;
+                
+                // Mailto links en servicios
+                document.querySelectorAll('.contact-mailto').forEach(link => {
+                    link.href = `mailto:${profileData.email}`;
+                });
+
+                // Footer Social Links
+                document.getElementById('github-link').href = profileData.socials.github;
+                document.getElementById('linkedin-link').href = profileData.socials.linkedin;
+                document.getElementById('twitter-link').href = profileData.socials.twitter;
+                
+                // Footer Copyright
+                document.getElementById('copyright-name').textContent = profileData.name;
+            }
+
+            // --- Lógica para el cambio de tema ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+
+            const setTheme = (theme) => {
+                htmlElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+                themeToggle.checked = theme === 'dark';
+            };
+
+            themeToggle.addEventListener('change', () => {
+                setTheme(themeToggle.checked ? 'dark' : 'light');
+            });
+
+            // --- Inicialización ---
+            const savedTheme = localStorage.getItem('theme') || 'dark'; 
+            setTheme(savedTheme);
+            populateProfileData();
+        });
+    </script>
+
+</body>
+</html>
+
