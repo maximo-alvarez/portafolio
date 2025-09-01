@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Desarrollador de Software</title>
-
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
     <!-- Tailwind CSS & daisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +24,17 @@
         }
         html {
             scroll-behavior: smooth;
+        }
+        /* Estilo para las listas de características */
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+        }
+        .feature-list li::before {
+            content: '✓';
+            color: hsl(var(--p));
+            margin-right: 0.5rem;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -122,9 +133,6 @@
                  <div class="tooltip" data-tip="SATDOT">
                     <img src="https://placehold.co/140x60/2A323C/FFFFFF?text=SATDOT" alt="Logo SATDOT" class="h-10 hover:grayscale-0 transition-all cursor-pointer">
                 </div>
-                <div class="text-lg opacity-60 hover:opacity-100 transition-opacity">
-                    ...y muchos más.
-                </div>
             </div>
         </section>
 
@@ -167,35 +175,72 @@
             <h2 class="text-4xl font-bold text-center mb-12">Productos (SaaS)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Producto 1 -->
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                    <div class="card-body items-center text-center">
-                        <i class='bx bx-receipt text-6xl text-primary mb-2'></i>
-                        <h3 class="card-title">Sistema de Facturación Electrónica</h3>
-                        <p class="text-sm opacity-70">(facturar.draco.ec)</p>
-                        <div class="card-actions justify-center mt-4">
-                            <a href="https://facturar.draco.ec" target="_blank" class="btn btn-primary btn-outline">Ver Producto</a>
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow flex flex-col">
+                    <div class="card-body">
+                        <div class="flex items-start gap-4">
+                             <i class='bx bx-receipt text-5xl text-primary mt-1'></i>
+                            <div>
+                                <h3 class="card-title">Sistema de Facturación Electrónica</h3>
+                                <p class="text-sm opacity-70 mb-4">(facturar.dracoec.com)</p>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-2 text-left flex-grow feature-list">
+                            <li>Facturación electrónica para Ecuador.</li>
+                            <li>Planes desde $20 (20 comprobantes anuales) hasta ilimitados.</li>
+                            <li>Generación de formato para impresora de comprobantes.</li>
+                            <li>Envío de factura al instante.</li>
+                            <li>Resúmen de ventas y reportes.</li>
+                            <li>Registro de productos, ventas y clientes.</li>
+                            <li>Y mucho más...</li>
+                        </ul>
+                         <div class="card-actions justify-center mt-6">
+                            <a href="https://facturar.dracoec.com" target="_blank" class="btn btn-primary btn-outline">Ver Producto</a>
                         </div>
                     </div>
                 </div>
                 <!-- Producto 2 -->
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                     <div class="card-body items-center text-center">
-                        <i class='bx bx-bus text-6xl text-secondary mb-2'></i>
-                        <h3 class="card-title">Sistema de Gestión de Unidades</h3>
-                         <p class="text-sm opacity-70">(unidades.draco.ec)</p>
-                        <div class="card-actions justify-center mt-4">
-                            <a href="https://unidades.draco.ec" target="_blank" class="btn btn-secondary btn-outline">Ver Producto</a>
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow flex flex-col">
+                     <div class="card-body">
+                        <div class="flex items-start gap-4">
+                             <i class='bx bx-bus text-5xl text-secondary mt-1'></i>
+                            <div>
+                                <h3 class="card-title">Sistema de Gestión de Unidades</h3>
+                                 <p class="text-sm opacity-70 mb-4">(unidades.dracoec.com)</p>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-2 text-left flex-grow feature-list">
+                           <li>Ideal para gestionar carreras (taxis, motos, delivery, etc.).</li>
+                           <li>Gestión de unidades, clientes (código) y rutas (carreras).</li>
+                           <li>Reportes de unidades con mayor número de carreras.</li>
+                           <li>Reportes de clientes frecuentes.</li>
+                           <li>Y mucho más...</li>
+                        </ul>
+                        <div class="card-actions justify-center mt-6">
+                            <a href="https://unidades.dracoec.com" target="_blank" class="btn btn-secondary btn-outline">Ver Producto</a>
                         </div>
                     </div>
                 </div>
                 <!-- Producto 3 -->
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                     <div class="card-body items-center text-center">
-                        <i class='bx bx-water text-6xl text-accent mb-2'></i>
-                        <h3 class="card-title">Control de Agua de Riego (SICAR)</h3>
-                         <p class="text-sm opacity-70">(sicar.draco.ec)</p>
-                        <div class="card-actions justify-center mt-4">
-                            <a href="https://sicar.draco.ec" target="_blank" class="btn btn-accent btn-outline">Ver Producto</a>
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow flex flex-col">
+                     <div class="card-body">
+                        <div class="flex items-start gap-4">
+                             <i class='bx bx-water text-5xl text-accent mt-1'></i>
+                            <div>
+                                <h3 class="card-title">Control de Agua de Riego (SICAR)</h3>
+                                 <p class="text-sm opacity-70 mb-4">(sicar.dracoec.com)</p>
+                             </div>
+                        </div>
+                        <ul class="text-sm space-y-2 text-left flex-grow feature-list">
+                           <li>Facturación electrónica incluída para Ecuador.</li>
+                           <li>Portal de consulta de comprobantes para usuarios.</li>
+                           <li>Registro de usuarios, lotes, cultivos e historial.</li>
+                           <li>Cálculo de consumo por tipo de cultivo.</li>
+                           <li>Cobro de multas, alquiler de maquinaria, etc.</li>
+                           <li>Reportes de recaudación, productos y usuarios.</li>
+                           <li>Y mucho más...</li>
+                        </ul>
+                        <div class="card-actions justify-center mt-6">
+                            <a href="https://sicar.dracoec.com" target="_blank" class="btn btn-accent btn-outline">Ver Producto</a>
                         </div>
                     </div>
                 </div>
@@ -245,6 +290,7 @@
             <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
                 <a id="github-link" href="#" target="_blank" class="link link-hover text-2xl"><i class='bx bxl-github'></i></a>
                 <a id="linkedin-link" href="#" target="_blank" class="link link-hover text-2xl"><i class='bx bxl-linkedin'></i></a>
+                <a id="facebook-link" href="#" target="_blank" class="link link-hover text-2xl"><i class='bx bxl-facebook'></i></a>
             </div>
         </div>
     </footer>
@@ -262,7 +308,8 @@
             },
             socials: {
                 github: "https://github.com/maximo-alvarez",
-                linkedin: "https://www.linkedin.com/in/maximoalvarez/"
+                linkedin: "https://www.linkedin.com/in/maximoalvarez/",
+                facebook: "https://www.facebook.com/maximoalvarezEC"
             }
         };
 
@@ -299,7 +346,7 @@
                 // Footer Social Links
                 document.getElementById('github-link').href = profileData.socials.github;
                 document.getElementById('linkedin-link').href = profileData.socials.linkedin;
-                document.getElementById('twitter-link').href = profileData.socials.twitter;
+                document.getElementById('facebook-link').href = profileData.socials.facebook;
                 
                 // Footer Copyright
                 document.getElementById('copyright-name').textContent = profileData.name;
